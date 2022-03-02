@@ -22,7 +22,7 @@ export const Navigation = ()=> {
       }, */
       headerShown:false, 
       cardStyle:{
-          backgroundColor:'white'
+        
       }
   }}
 

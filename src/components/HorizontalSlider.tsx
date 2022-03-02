@@ -10,13 +10,13 @@ interface Props{
 
 export const HorizontalSlider = ({title, movies}:Props) => {
     return (
-        <View style={{ backgroundColor: 'red',
+        <View style={{ 
          height: (title) ? 260 : 220
          }}>
         {
-            title && <Text style={{ fontSize: 30, fontWeight: 'bold'}}>{title}</Text>
+            title && <Text style={{ fontSize: 30, fontWeight: 'bold', marginHorizontal:5}}>{title}</Text>
         }
-        
+        <View style={{ marginLeft:5}}>
         <FlatList
          data={movies}
          renderItem={( {item }: any)=>  <MovieCard movie= {item} width={140} height={200}/> }
@@ -24,6 +24,8 @@ export const HorizontalSlider = ({title, movies}:Props) => {
          horizontal={true}
          showsHorizontalScrollIndicator= {false}
         />
+        </View>
+       
        </View>
     )
 }

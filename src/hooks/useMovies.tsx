@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import movieDB from "../api/movieDB"
 import { Movie, MovieResponse } from "../interfaces/movieInterface"
 
-interface moviesState{
+interface MoviesState{
     nowPlaying: Movie[],
     popular: Movie[],
     topRated: Movie[],
@@ -13,8 +13,12 @@ interface moviesState{
 export const useMovies = () => {
 
     const [isLoading, setIsLoading] = useState(true)
-    const [ moviesState, setMoviesState] = useState<moviesState>()
-
+    const [ moviesState, setMoviesState ] = useState<MoviesState>({
+        nowPlaying: [],
+        popular: [],
+        topRated: [],
+        upComing: [],
+    })
     const getMovies = async () =>{
 
         const nowPlayingPromise = await movieDB.get<MovieResponse>('/now_playing')
